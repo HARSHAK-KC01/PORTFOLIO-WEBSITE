@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ventures — Harshak K C</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="projects.css">
+    <style>.project-hero { --hero-gradient: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(234,88,12,0.08)); }</style>
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+    <div class="bg-glow" id="bgGlow"></div>
+    <canvas id="webgl-canvas"></canvas>
+    <div class="page-transition"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html" data-cursor="lg">HARSHAK</a></div>
+            <ul class="nav-menu">
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#tools" class="nav-link">Tools</a></li>
+                <li><a href="index.html#projects" class="nav-link active">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" data-cursor="sm"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content" data-animate="fade-up">
+                <a href="index.html#projects" class="back-link" data-cursor="sm">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    Back to Projects
+                </a>
+                <span class="section-label">VENTURES</span>
+                <h1 class="section-title">Entrepreneurial<br><span class="accent">Brand Ventures</span></h1>
+                <p class="project-hero-desc">End-to-end brand identities and creative direction for personal ventures including VR Luxuries, Layerstop, Velva Aura, and Devspear.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-gallery">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item" data-animate="fade-up" data-tilt data-tilt-max="5">
+                    <div class="gallery-visual venture-gradient-1">
+                        <div class="gallery-placeholder"></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>VR Luxuries</h3>
+                        <p>Premium lifestyle brand identity — logo, visual language, social media templates, and product packaging.</p>
+                        <div class="gallery-tags"><span class="gallery-tag">BRANDING</span><span class="gallery-tag">LUXURY</span></div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-animate="fade-up" data-delay="0.1" data-tilt data-tilt-max="5">
+                    <div class="gallery-visual venture-gradient-2">
+                        <div class="gallery-placeholder"></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Layerstop</h3>
+                        <p>Creative agency branding with a focus on digital-first identity and web presence.</p>
+                        <div class="gallery-tags"><span class="gallery-tag">IDENTITY</span><span class="gallery-tag">DIGITAL</span></div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-animate="fade-up" data-delay="0.2" data-tilt data-tilt-max="5">
+                    <div class="gallery-visual venture-gradient-3">
+                        <div class="gallery-placeholder"></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Velva Aura</h3>
+                        <p>Aesthetic lifestyle brand — visual direction, merchandise, and content strategy.</p>
+                        <div class="gallery-tags"><span class="gallery-tag">LIFESTYLE</span><span class="gallery-tag">CREATIVE DIRECTION</span></div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-animate="fade-up" data-delay="0.3" data-tilt data-tilt-max="5">
+                    <div class="gallery-visual venture-gradient-4">
+                        <div class="gallery-placeholder"></div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Devspear</h3>
+                        <p>Tech-focused venture branding with developer-centric design language and marketing materials.</p>
+                        <div class="gallery-tags"><span class="gallery-tag">TECH</span><span class="gallery-tag">STARTUP</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="detail-card glass-card" data-animate="fade-right">
+                    <div class="card-glow"></div>
+                    <h3>Vision</h3>
+                    <p>Each venture represents a different facet of creative entrepreneurship — from luxury lifestyle to tech innovation. The design systems I build serve as the foundation for brand growth and recognition.</p>
+                </div>
+                <div class="detail-card glass-card" data-animate="fade-left" data-delay="0.15">
+                    <div class="card-glow"></div>
+                    <h3>Deliverables</h3>
+                    <ul>
+                        <li>Logo & Brand Identity</li>
+                        <li>Brand Guidelines</li>
+                        <li>Social Media Kits</li>
+                        <li>Website Design</li>
+                        <li>Marketing Collateral</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Harshak K C. Crafted with precision & passion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

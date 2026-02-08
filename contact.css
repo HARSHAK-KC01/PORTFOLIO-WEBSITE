@@ -1,0 +1,635 @@
+/* ============================================
+   CONTACT PAGE — IMMERSIVE DARK 3D DESIGN
+   ============================================ */
+
+/* ===== HERO ===== */
+.ct-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 2rem 4rem;
+    z-index: 1;
+}
+
+.ct-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.ct-grid-plane {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: gridMove 20s linear infinite;
+}
+
+.ct-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+}
+
+.ct-orb-1 {
+    width: 500px; height: 500px;
+    background: rgba(99,102,241,0.2);
+    top: -100px; right: -100px;
+    animation: orbFloat 10s ease-in-out infinite;
+}
+
+.ct-orb-2 {
+    width: 400px; height: 400px;
+    background: rgba(139,92,246,0.15);
+    bottom: -50px; left: -80px;
+    animation: orbFloat 13s ease-in-out infinite reverse;
+}
+
+.ct-orb-3 {
+    width: 300px; height: 300px;
+    background: rgba(79,172,254,0.1);
+    top: 40%; left: 50%;
+    animation: orbFloat 8s ease-in-out infinite;
+    animation-delay: -3s;
+}
+
+#ctParticles {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ct-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 750px;
+}
+
+.ct-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.ct-badge-dot {
+    width: 8px; height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.ct-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 1.5rem;
+}
+
+.ct-title-line { display: block; }
+
+.ct-accent {
+    background: linear-gradient(135deg, var(--accent), #8b5cf6, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ct-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* 3D Torus in hero */
+.ct-hero-3d {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.ct-torus {
+    width: 200px; height: 200px;
+    position: relative;
+    perspective: 600px;
+    transform-style: preserve-3d;
+}
+
+.torus-ring {
+    position: absolute;
+    inset: 0;
+    border: 1.5px solid rgba(99,102,241,0.2);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+}
+
+.torus-ring.tr-1 { animation: ringRotate1 8s linear infinite; }
+.torus-ring.tr-2 {
+    inset: 20px;
+    border-color: rgba(139,92,246,0.18);
+    animation: ringRotate2 10s linear infinite;
+}
+.torus-ring.tr-3 {
+    inset: 40px;
+    border-color: rgba(79,172,254,0.15);
+    animation: ringRotate3 6s linear infinite;
+}
+
+.torus-core {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 14px; height: 14px;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(99,102,241,0.6), 0 0 60px rgba(99,102,241,0.2);
+    animation: corePulse 3s ease-in-out infinite;
+}
+
+/* ===== INFO STRIP ===== */
+.ct-info-strip {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.ct-info-track {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ct-info-scroll {
+    display: inline-flex;
+    gap: 3rem;
+    animation: marqueeScroll 20s linear infinite;
+}
+
+.ct-info-scroll span {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.ct-info-dot {
+    color: var(--accent) !important;
+    font-size: 0.6rem !important;
+    opacity: 0.5;
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ===== CONTACT CARDS ===== */
+.ct-cards-section {
+    padding: 6rem 0;
+}
+
+.ct-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.ct-card {
+    padding: 2.5rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.ct-card-3d-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ct-card-ring {
+    width: 120px; height: 120px;
+    border: 1px solid rgba(99,102,241,0.08);
+    border-radius: 50%;
+    animation: cardRingSpin 15s linear infinite;
+}
+
+@keyframes cardRingSpin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.ct-card-icon {
+    width: 60px; height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.15);
+    color: var(--accent);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s var(--transition-spring), background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.ct-card:hover .ct-card-icon {
+    transform: translateY(-4px) scale(1.08);
+    background: rgba(99,102,241,0.15);
+    box-shadow: 0 8px 30px rgba(99,102,241,0.15);
+}
+
+.ct-card-icon svg {
+    stroke: var(--accent);
+}
+
+.ct-card-icon-pulse::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid rgba(34,197,94,0.3);
+    border-radius: 18px;
+    animation: iconPulseRing 2s ease-in-out infinite;
+}
+
+@keyframes iconPulseRing {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.3; }
+}
+
+.ct-card-label {
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
+}
+
+.ct-card-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+a.ct-card-value:hover {
+    color: var(--accent);
+}
+
+/* ===== SOCIAL / LINKEDIN SECTION ===== */
+.ct-social-section {
+    padding: 0 0 6rem;
+}
+
+.ct-social-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    padding: 3rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.ct-social-3d {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    perspective: 500px;
+}
+
+.ct-social-sphere {
+    position: relative;
+    width: 120px; height: 120px;
+    transform-style: preserve-3d;
+    animation: sphereRotate 12s linear infinite;
+}
+
+.ss-ring {
+    position: absolute;
+    inset: 0;
+    border: 1.5px solid rgba(99,102,241,0.2);
+    border-radius: 50%;
+}
+
+.ss-ring.ss-1 { transform: rotateX(0deg); }
+.ss-ring.ss-2 { transform: rotateY(90deg); }
+.ss-ring.ss-3 { transform: rotateX(60deg) rotateY(60deg); }
+
+.ss-core {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 16px; height: 16px;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(99,102,241,0.6), 0 0 50px rgba(99,102,241,0.2);
+    animation: corePulse 3s ease-in-out infinite;
+}
+
+@keyframes sphereRotate {
+    0%   { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.ct-social-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ct-social-content h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+}
+
+.ct-social-content p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+    max-width: 420px;
+}
+
+.ct-linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.25);
+    border-radius: 100px;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+    transition: all 0.4s var(--transition-smooth);
+    width: fit-content;
+}
+
+.ct-linkedin-btn svg:first-child {
+    color: #0A66C2;
+}
+
+.ct-linkedin-btn:hover {
+    background: rgba(99,102,241,0.2);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(99,102,241,0.15);
+}
+
+.ct-linkedin-btn:hover svg:last-child {
+    transform: translate(3px, -3px);
+    color: var(--accent);
+}
+
+.ct-linkedin-btn svg:last-child {
+    transition: transform 0.4s var(--transition-smooth), color 0.3s ease;
+}
+
+/* ===== CONTACT FORM ===== */
+.ct-form-section {
+    padding: 0 0 8rem;
+}
+
+.ct-form-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.ct-form-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.ct-form-3d-accent {
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    perspective: 400px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+.ct-form-diamond {
+    width: 60px; height: 60px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) rotateX(-20deg) rotateY(30deg);
+    animation: cubeRotate 12s linear infinite;
+}
+
+.diamond-face {
+    position: absolute;
+    width: 60px; height: 60px;
+    border: 1px solid rgba(99,102,241,0.2);
+    background: rgba(99,102,241,0.04);
+    border-radius: 4px;
+}
+
+.diamond-face.df-1 { transform: translateZ(30px); }
+.diamond-face.df-2 { transform: translateZ(-30px) rotateY(180deg); }
+.diamond-face.df-3 { transform: translateX(-30px) rotateY(-90deg); }
+.diamond-face.df-4 { transform: translateX(30px) rotateY(90deg); }
+
+.ct-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.contact-form {
+    position: relative;
+    z-index: 1;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.4s var(--transition-smooth);
+    outline: none;
+    cursor: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent);
+    background: rgba(99,102,241,0.04);
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.08), 0 4px 20px rgba(99,102,241,0.06);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form .btn-primary {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+    cursor: none;
+}
+
+.form-status {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background: rgba(34,197,94,0.08);
+    border: 1px solid rgba(34,197,94,0.25);
+    color: #22c55e;
+}
+
+.form-status.error {
+    display: block;
+    background: rgba(239,68,68,0.08);
+    border: 1px solid rgba(239,68,68,0.25);
+    color: #ef4444;
+}
+
+/* ===== SECTION Z-INDEX (above WebGL canvas) ===== */
+.ct-info-strip,
+.ct-cards-section,
+.ct-social-section,
+.ct-form-section,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Prevent iOS zoom on input focus (font-size must be >= 16px) */
+@media (hover: none) and (pointer: coarse) {
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px;
+        cursor: auto;
+    }
+    body { cursor: auto; }
+    a, button { cursor: pointer; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .ct-cards-grid { grid-template-columns: 1fr 1fr; }
+    .ct-hero-3d { display: none; }
+}
+
+@media (max-width: 768px) {
+    .ct-hero {
+        padding: 6rem 1.5rem 3rem;
+        min-height: 0;
+        padding-top: 10rem;
+        min-height: 100dvh;
+    }
+    .ct-title { font-size: 2.2rem; letter-spacing: -1px; }
+    .ct-cards-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .ct-social-card { grid-template-columns: 1fr; text-align: center; }
+    .ct-social-3d { margin: 0 auto; width: 140px; height: 140px; }
+    .ct-social-content { align-items: center; }
+    .ct-social-content p { text-align: center; }
+    .ct-form-wrap { padding: 2rem; }
+    .ct-form-row { grid-template-columns: 1fr; }
+    .ct-info-scroll span { font-size: 0.8rem; letter-spacing: 2px; }
+}
+
+@media (max-width: 480px) {
+    .ct-hero { padding: 5rem 1rem 2.5rem; padding-top: 8rem; }
+    .ct-title { font-size: 1.8rem; letter-spacing: -0.5px; }
+    .ct-card { padding: 1.5rem 1.2rem; }
+    .ct-card h3 { font-size: 1rem; }
+    .ct-form-wrap { padding: 1.25rem; }
+    .ct-social-3d { width: 110px; height: 110px; }
+    .ct-social-content h2 { font-size: 1.5rem; }
+}
+
+@media (max-width: 360px) {
+    .ct-title { font-size: 1.5rem; }
+    .ct-card { padding: 1.2rem 1rem; }
+    .ct-form-wrap { padding: 1rem; }
+}
